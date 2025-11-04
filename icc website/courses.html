@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | ICC Resource Hub</title>
+    
+    <link rel="stylesheet" href="css/style.css"> 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        :root {
+            --color-navy: #1E293B; 
+            --color-teal: #38BDF8;
+            --color-purple: #8B5CF6;
+        }
+        #page-content-wrapper {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray bg */
+            color: var(--color-navy);
+            overflow-x: hidden;
+            min-height: 80vh; 
+        }
+        #page-content-wrapper .hero-gradient-text {
+            background-image: linear-gradient(90deg, var(--color-teal), var(--color-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        /* New Hero Section Specifics */
+        .hero-section-courses {
+            position: relative;
+            padding-top: 6rem;
+            padding-bottom: 8rem;
+            background: linear-gradient(135deg, #eef2f5 0%, #fcfdfe 100%); /* Lighter, subtle gradient */
+            overflow: hidden;
+        }
+        .hero-section-courses::before {
+            content: '';
+            position: absolute;
+            top: -50px; left: -50px;
+            width: 200px; height: 200px;
+            background: rgba(56, 189, 248, 0.1); /* Teal bubble */
+            border-radius: 50%;
+            animation: floatBubble 10s infinite ease-in-out;
+            z-index: 0;
+        }
+        .hero-section-courses::after {
+            content: '';
+            position: absolute;
+            bottom: -70px; right: -70px;
+            width: 250px; height: 250px;
+            background: rgba(139, 92, 246, 0.1); /* Purple bubble */
+            border-radius: 50%;
+            animation: floatBubble 12s infinite ease-in-out reverse;
+            z-index: 0;
+        }
+        @keyframes floatBubble {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            50% { transform: translate(20px, -20px) scale(1.05); opacity: 0.8; }
+            100% { transform: translate(0, 0) scale(1); opacity: 1; }
+        }
+        .hero-section-courses .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Course Category Cards (B.Com / B.B.A) */
+        .course-category-card {
+            background-color: white;
+            border-radius: 1.5rem; /* rounded-3xl */
+            padding: 2.5rem; /* p-10 */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eef2f5;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .course-category-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(45deg, rgba(56,189,248,0.05) 0%, rgba(139,92,246,0.05) 100%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .course-category-card:hover::before { opacity: 1; }
+        .course-category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        .course-category-card h3 {
+            font-size: 2.5rem; /* text-4xl */
+            font-weight: 800; /* font-extrabold */
+            margin-bottom: 1rem;
+            color: var(--color-navy);
+            position: relative;
+            z-index: 1;
+        }
+        .course-category-card p {
+            font-size: 1.125rem; /* text-lg */
+            color: #475569; /* slate-600 */
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .course-category-card .btn-explore {
+            display: inline-flex;
+            align-items: center;
+            background-image: linear-gradient(to right, #38BDF8 0%, #8B5CF6 100%);
+            color: white;
+            font-weight: 700;
+            padding: 0.875rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        .course-category-card .btn-explore:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Semester Cards */
+        .semester-card {
+            display: flex; /* Use flex for better alignment */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            text-decoration: none;
+            color: var(--color-navy);
+            height: 100%; /* Ensure cards are same height */
+        }
+        .semester-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.15);
+            border-color: var(--color-purple);
+        }
+        .semester-number {
+            font-size: 3.5rem; /* Larger number */
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            background-image: linear-gradient(90deg, var(--color-teal), var(--color-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .semester-label {
+            font-size: 1.25rem; /* Larger text */
+            font-weight: 600;
+            color: var(--color-navy);
+            margin-bottom: 0.5rem;
+        }
+        .semester-status { /* For 'Coming Soon' text */
+            font-size: 0.875rem; /* text-sm */
+            color: #94a3b8; /* slate-400 */
+        }
+        .semester-card .fas.fa-arrow-right {
+            margin-top: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--color-purple);
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateX(-10px);
+        }
+        .semester-card:hover .fas.fa-arrow-right {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Why ICC Section */
+        .why-icc-item {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f1f5f9;
+            transition: transform 0.2s;
+        }
+        .why-icc-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        .why-icc-icon {
+            font-size: 2.25rem; /* text-4xl */
+            margin-bottom: 0.75rem;
+            background-image: linear-gradient(90deg, var(--color-teal), var(--color-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- YOUR RE-USED HEADER --><header>
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="images/logo.png" alt="ICC Logo" class="logo">
+                <span>INTERCOLLEGIATE COMMERCE CONNECT</span>
+            </a>
+            <button class="hamburger"><span></span><span></span><span></span></button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>  
+                    <li class="menu-item-has-children">
+                        <a href="courses.html" class="active">Courses <span>▾</span></a> 
+                        <ul class="sub-menu">
+                            <li class="menu-item-has-children">
+                                <a href="#">B.COM <span>▸</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="b.com semesters/semester-1.html">SEMESTER 1</a></li>
+                                    <li><a href="b.com semesters/semester-2.html">SEMESTER 2</a></li> <!-- Placeholder for 2 --><li><a href="b.com semesters/semester-3.html">SEMESTER 3</a></li>
+                                    <li><a href="b.com semesters/semester-4.html">SEMESTER 4</a></li> <!-- Placeholder for 4 --><li><a href="b.com semesters/semester-5.html">SEMESTER 5</a></li>
+                                    <li><a href="b.com semesters/semester-6.html">SEMESTER 6</a></li> <!-- Placeholder for 6 --></ul>
+                            </li>
+                            <li><a href="#">B.B.A</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="upload.html">Upload Center</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- NEW COURSES CONTENT --><main id="page-content-wrapper">
+        <div id="app" class="py-20">
+
+            <!-- Dynamic Hero Section --><section class="hero-section-courses text-center mb-16">
+                <div class="max-w-4xl mx-auto px-4 relative z-10">
+                    <h1 class="text-5xl sm:text-6xl font-extrabold mb-6 leading-none tracking-tight text-slate-900">
+                        Your Gateway to <span class="hero-gradient-text">Academic Success</span>
+                    </h1>
+                    <p class="text-xl text-slate-700 max-w-3xl mx-auto mb-8">
+                        Explore our comprehensive resource hub, tailored for Osmania University commerce students. Find everything you need for B.Com and upcoming B.B.A courses.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#bcom-section" class="btn-explore">
+                            Explore B.Com <i class="fas fa-chevron-down ml-2"></i>
+                        </a>
+                        <a href="#bba-section" class="btn-explore opacity-70 cursor-not-allowed" title="B.B.A Resources Coming Soon!">
+                            Explore B.B.A <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Course Categories Section (B.Com & B.B.A) --><section class="max-w-6xl mx-auto px-4 mb-20">
+                <div class="grid md:grid-cols-2 gap-10">
+                    
+                    <!-- B.Com Card --><div class="course-category-card" id="bcom-section">
+                        <h3 class="hero-gradient-text">B.Com</h3>
+                        <p>Access notes, previous question papers, and essential materials for all semesters of your Bachelor of Commerce degree.</p>
+                        <a href="#bcom-semesters" class="btn-explore">
+                            View Semesters <i class="fas fa-arrow-down ml-2"></i>
+                        </a>
+                    </div>
+
+                    <!-- B.B.A Card (Coming Soon) --><div class="course-category-card opacity-60 cursor-not-allowed" title="B.B.A Resources Coming Soon!" id="bba-section">
+                        <h3>B.B.A</h3>
+                        <p class="text-slate-500">Exciting news! We're actively building a dedicated resource library for Bachelor of Business Administration students. Stay tuned for updates!</p>
+                        <button class="btn-explore" disabled>
+                            Coming Soon <i class="fas fa-hourglass-half ml-2"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- B.Com Semesters Section --><section class="max-w-6xl mx-auto px-4 mb-20" id="bcom-semesters">
+                <h2 class="text-4xl font-extrabold text-slate-900 text-center mb-12">
+                    B.Com <span class="hero-gradient-text">Semesters</span>
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <a href="b.com semesters/semester-1.html" class="semester-card">
+                        <div class="semester-number">1</div>
+                        <div class="semester-label">Semester 1</div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                    <a href="b.com semesters/semester-2.html" class="semester-card opacity-50 cursor-not-allowed" title="Coming Soon">
+                        <div class="semester-number">2</div>
+                        <div class="semester-label">Semester 2</div>
+                        <div class="semester-status">(Coming Soon)</div> 
+                    </a>
+
+                    <a href="b.com semesters/semester-3.html" class="semester-card">
+                        <div class="semester-number">3</div>
+                        <div class="semester-label">Semester 3</div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                    <a href="b.com semesters/semester-4.html" class="semester-card opacity-50 cursor-not-allowed" title="Coming Soon">
+                        <div class="semester-number">4</div>
+                        <div class="semester-label">Semester 4</div>
+                        <div class="semester-status">(Coming Soon)</div>
+                    </a>
+
+                    <a href="b.com semesters/semester-5.html" class="semester-card">
+                        <div class="semester-number">5</div>
+                        <div class="semester-label">Semester 5</div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                    <a href="b.com semesters/semester-6.html" class="semester-card opacity-50 cursor-not-allowed" title="Coming Soon">
+                        <div class="semester-number">6</div>
+                        <div class="semester-label">Semester 6</div>
+                        <div class="semester-status">(Coming Soon)</div>
+                    </a>
+
+                </div>
+            </section>
+            
+            <!-- Why Choose ICC? Section --><section class="max-w-6xl mx-auto px-4 mt-20 text-center">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-12">
+                    Why Choose <span class="hero-gradient-text">ICC Resources?</span>
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="why-icc-item">
+                        <i class="fas fa-check-circle why-icc-icon"></i>
+                        <h3 class="text-xl font-bold mb-2">Verified Content</h3>
+                        <p class="text-slate-600 text-sm">All resources are reviewed by our team to ensure accuracy and relevance to the OU syllabus.</p>
+                    </div>
+                    <div class="why-icc-item">
+                        <i class="fas fa-users why-icc-icon"></i>
+                        <h3 class="text-xl font-bold mb-2">Community Driven</h3>
+                        <p class="text-slate-600 text-sm">Built by students, for students. Share your knowledge and help your peers excel.</p>
+                    </div>
+                    <div class="why-icc-item">
+                        <i class="fas fa-mobile-alt why-icc-icon"></i>
+                        <h3 class="text-xl font-bold mb-2">Easy Access</h3>
+                        <p class="text-slate-600 text-sm">Find what you need quickly with our intuitive navigation and organized categories.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    <!-- END OF NEW CONTENT --><!-- YOUR RE-USED FOOTER --><footer class="bg-slate-900 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-400 text-sm">
+            <p class="mb-2">© 2024 ICC. All Rights Reserved.</p>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Service</a>
+                <a href="#" classs="hover:text-white transition">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "txc5tfa5jq");
+    </script>
+
+</body>
+</html>

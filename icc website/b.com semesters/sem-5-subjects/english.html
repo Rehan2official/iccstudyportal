@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.Com Semester 5 | English Language Subject</title>
+    
+    <!-- This link is a placeholder. Make sure the path "../../css/style.css" is correct in your project. -->
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        :root {
+            --primary-text: #1e293b;
+            --accent-blue: #3b82f6; 
+            --light-bg: #f8fafc;
+        }
+
+        /* UPDATED WRAPPER ID */
+        #english-sem5-content {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary-text);
+            padding: 24px;
+            background-color: #ffffff;
+        }
+
+        /* All styles below are prefixed with the new ID */
+        #english-sem5-content .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 8px;
+            letter-spacing: 0.05em;
+        }
+        #english-sem5-content .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-blue);
+            border-radius: 2px;
+        }
+        #english-sem5-content .file-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease-in-out;
+            padding: 1rem;
+        }
+        #english-sem5-content .file-item:hover {
+            background-color: var(--light-bg);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3), 0 4px 6px -4px rgba(59, 130, 246, 0.3);
+            transform: translateY(-4px);
+        }
+        #english-sem5-content .icon-shadow {
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+            transition: transform 0.2s;
+        }
+        #english-sem5-content .file-item:hover .icon-shadow {
+            transform: scale(1.05);
+        }
+
+        /* Placeholder styles for header/nav if style.css is missing */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 0;
+        }
+        header .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-link {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: #111827;
+            text-decoration: none;
+        }
+        .logo {
+            height: 40px;
+            margin-right: 0.75rem;
+        }
+        nav ul {
+            display: none; /* Mobile-first hidden */
+            list-style: none;
+        }
+        .hamburger {
+            display: block; /* Show hamburger on mobile */
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+        }
+        /* Basic desktop nav styles */
+        @media (min-width: 768px) {
+            .hamburger { display: none; }
+            nav ul {
+                display: flex;
+                gap: 1.5rem;
+            }
+            nav a {
+                text-decoration: none;
+                color: #374151;
+                font-weight: 500;
+            }
+            nav a:hover {
+                color: var(--accent-blue);
+            }
+            /* Basic dropdown - adjust as needed */
+            .menu-item-has-children { position: relative; }
+            .sub-menu {
+                display: none;
+                position: absolute;
+                background: #fff;
+                border: 1px solid #e5e7eb;
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                min-width: 180px;
+                z-index: 10;
+            }
+            .menu-item-has-children:hover > .sub-menu {
+                display: block;
+            }
+            .sub-menu li { width: 100%; }
+            .sub-menu a { display: block; padding: 0.5rem 1rem; }
+            .sub-menu .menu-item-has-children > .sub-menu {
+                left: 100%;
+                top: 0;
+            }
+        }
+    </style>
+    <!-- Microsoft Clarity Script Added -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "txc5tfa5jq");
+    </script>
+    <!-- End Microsoft Clarity Script -->
+</head>
+<body class="min-h-screen">
+
+    <header>
+        <div class="container">
+            <a href="../../index.html" class="logo-link">
+                <!-- Updated logo path -->
+                <img src="../../images/logo.png" alt="ICC Logo" class="logo">
+                <span>INTERCOLLEGIATE COMMERCE CONNECT</span>
+            </a>
+            <button class="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li> 
+                    <li class="menu-item-has-children">
+                        <a href="#">Courses <span>▾</span></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item-has-children">
+                                <a href="#">B.COM <span>▸</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="../semester-1.html">SEMESTER 1</a></li>
+                                    <li><a href="#">SEMESTER 2</a></li>
+                                    <li><a href="../semester-3.html">SEMESTER 3</a></li>
+                                    <li><a href="#">SEMESTER 4</a></li>
+                                    <li><a href="../semester-5.html" style="font-weight: bold;">SEMESTER 5</a></li>
+                                    <li><a href="#">SEMESTER 6</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">B.B.A</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../upload.html">Upload Center</a></li>
+                    <li><a href="../../join.html">Join Us</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main id="english-sem5-content">
+        <div id="app" class="max-w-7xl mx-auto">
+
+            <div class="english-page-header flex flex-col md:flex-row items-center justify-center md:justify-start gap-8 mb-16 p-6 rounded-2xl bg-slate-50 border border-slate-200">
+                
+                <div class="flex-shrink-0">
+                    <img id="subject-icon"
+                         src="https://placehold.co/100x100/3b82f6/ffffff?text=ENGLISH" 
+                         alt="English Subject Icon" 
+                         class="w-20 h-20 md:w-28 md:h-28 rounded-full object-cover shadow-lg border-4 border-white ring-2 ring-accent-blue"
+                    />
+                </div>
+
+                <div class="text-center md:text-left">
+                     <!-- This link is a placeholder. Make sure the path "languages.html" is correct in your project. -->
+                     <a href="languages.html" class="text-blue-600 hover:underline block mb-3">&larr; Back to Languages</a>
+
+                    <p class="text-sm font-medium text-gray-600 mb-2">
+                        B.Com Curriculum Artifacts <span class="text-xs italic text-gray-400 ml-2">// First Language Option</span>
+                    </p>
+                    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter uppercase leading-none">
+                        ENGLISH
+                    </h1>
+                    <p class="text-xl md:text-2xl font-semibold mt-2 text-slate-600">
+                        SEMESTER 05
+                    </p>
+                    <p class="text-sm mt-3 text-slate-500">
+                        Your central repository for the textbook, materials, and assignments.
+                    </p>
+                </div>
+            </div>
+
+            <script>
+                // UPDATED ICON FUNCTION with new types
+                function getFileIcon(type) {
+                    let colorBase = '#ef4444', colorLight = '#f87171', colorDark = '#dc2626';
+                    switch (type) {
+                        case 'textbook': // Blue
+                            colorBase = '#3b82f6'; colorLight = '#60a5fa'; colorDark = '#2563eb'; break;
+                        case 'material': // Orange
+                            colorBase = '#f97316'; colorLight = '#fb923c'; colorDark = '#ea580c'; break;
+                        case 'assignment': // Yellow
+                            colorBase = '#f59e0b'; colorLight = '#fcd34d'; colorDark = '#d97706'; break;
+                        default: // Red
+                            colorBase = '#ef4444'; colorLight = '#f87171'; colorDark = '#dc2626'; break;
+                    }
+                    return `
+                        <svg class="w-full h-full icon-shadow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <title>${type} Icon</title>
+                            <rect x="5" y="6" width="14" height="15" rx="2" fill="${colorDark}" opacity="0.6"/>
+                            <rect x="4" y="4" width="14" height="15" rx="2" fill="${colorBase}" opacity="0.8"/>
+                            <rect x="3" y="2" width="14" height="15" rx="2" fill="${colorLight}"/>
+                            <path d="M7 6H13" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M7 10H13" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M7 14H13" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>`;
+                }
+                function renderFolderItem(title, subtitle, link, iconType) {
+                    const subtitleHtml = subtitle ? `<p class="text-xs text-gray-500 mt-1">${subtitle}</p>` : '';
+                    const titleClasses = 'text-sm font-bold'; 
+                    return `
+                        <a href="${link}" target="_blank" class="file-item block text-center group">
+                            <div class="w-16 h-16 mx-auto mb-3">${getFileIcon(iconType)}</div>
+                            <p class="${titleClasses}">${title}</p>
+                            ${subtitleHtml}
+                        </a>`;
+                }
+                function renderSection(id, items, iconType) {
+                    const container = document.getElementById(id);
+                    if (container) {
+                        container.innerHTML = items.map(item => 
+                            renderFolderItem(item.title, item.subtitle, item.link, iconType)
+                        ).join('');
+                    }
+                }
+                
+                // UPDATED: All data arrays for Sem 5
+                document.addEventListener("DOMContentLoaded", function() {
+                    // UPDATED: textbook array
+                    const textbook = [
+                        { title: "O.B.S Textbook", subtitle: "Official Syllabus Textbook", link: "https://drive.google.com/file/d/1Ozz7o4SWH90MuSlNbL1GUlReRu_9Yv8F/preview" },
+                        { title: "Grammar", subtitle: "Study Material", link: "https://drive.google.com/file/d/1uGt3hOyMD6toGjQjsNuY_82S5vIPLCde/preview" },
+                        { title: "Study Material", subtitle: "Additional Notes", link: "https://drive.google.com/file/d/1vd3HRAztDoAhHDMCho90y4kL9nXVFzVB/preview" }
+                    ]; 
+                    const materials = [
+                        { title: "Unit wise Summaries Set 1", subtitle: "Study Guide", link: "https://drive.google.com/file/d/11jmSRUEqM9DYAQc3tpAO7x2VPEjrnl9V/preview" },
+                        { title: "Unit wise Summaries Set 2", subtitle: "Study Guide", link: "https://drive.google.com/file/d/1BWWGalkzUwwmDRX2lLqLOBOia9H4lpBM/preview" },
+                        { title: "Unit wise Summaries Set 3", subtitle: "Study Guide", link: "https://drive.google.com/file/d/1S6V5zcR0VIiJG9kajGCYwgw7QwK6OR_t/preview" },
+                    ];
+                    const assignments = [
+                        { title: "Sample Assignment", subtitle: "Reference Questions", link: "https://drive.google.com/file/d/1KsNUNdZlR585f8iI5HbGMkWdl5khXG-M/preview" },
+                    ];
+                    // NEW: questionPapers array
+                    const questionPapers = [
+                        { title: "November 2024", subtitle: "Question Paper", link: "https://drive.google.com/file/d/1vyksYBjN94Ob_IBidAoKHuCgeTWmlcYm/preview" }
+                    ];
+                    
+                    // UPDATED: Render calls for new sections
+                    renderSection('textbook-container', textbook, 'textbook');
+                    renderSection('materials-container', materials, 'material');
+                    renderSection('assignments-container', assignments, 'assignment');
+                    renderSection('qps-container', questionPapers, 'assignment'); // NEW render call
+                });
+            </script>
+
+            <!-- NEW: Previous Question Paper Section -->
+            <h2 class="section-title">PREVIOUS QUESTION PAPER</h2>
+            <div id="qps-container" class="grid grid-cols-1 max-w-sm mx-auto gap-6"></div>
+            
+            <!-- UPDATED: Section title -->
+            <h2 class="section-title">MATERIALS</h2>
+            <!-- UPDATED: Layout classes for textbook container -->
+            <div id="textbook-container" class="grid grid-cols-2 sm:grid-cols-3 max-w-3xl mx-auto gap-6"></div>
+            
+            <!-- UPDATED: Section title -->
+            <h2 class="section-title">UNIT SUMMARIES</h2>
+            <div id="materials-container" class="grid grid-cols-2 sm:grid-cols-3 max-w-3xl mx-auto gap-6"></div>
+            
+            <h2 class="section-title">ASSIGNMENTS</h2>
+            <div id="assignments-container" class="grid grid-cols-1 max-w-sm mx-auto gap-6"></div>
+            
+            <!-- NEW: Previous Question Paper Section -->
+            
+            <footer class="mt-20 border-t pt-6 pb-6 bg-white">
+                <div class="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm">
+                    <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                        <!-- Updated logo path -->
+                        <img src="../../images/hero.png" alt="ICC Logo" class="w-10 h-10 object-contain rounded-lg" />
+                        <span class="font-bold text-base text-gray-800 tracking-wider text-center md:text-left">
+                            INTERCOLLEGIATE COMMERCE CONNECT (ICC)
+                        </span>
+                    </div>
+                    <div class="text-gray-500 mb-4 md:mb-0 text-center">
+                        &copy; 2025 ICCstudyportal. All Right Reserved.
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" target="_blank" class="text-gray-400 hover:text-green-500 transition-colors">WhatsApp</a>
+                        <a href="#" target="_blank" class="text-gray-400 hover:text-pink-500 transition-colors">Instagram</a>
+                        <a href="#" target="_blank" class="text-gray-400 hover:text-blue-600 transition-colors">Facebook</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+    
+    <!-- This link is a placeholder. Make sure the path "../../js/script.js" is correct in your project. -->
+    <script>
+        // Placeholder for script.js content (e.g., mobile menu toggle)
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav ul');
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', () => {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    // You'll need more logic for a real mobile menu (e.g., flex-direction: column)
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
+

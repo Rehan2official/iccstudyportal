@@ -1,0 +1,390 @@
+/* --- Global Styles --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the content */
+}
+
+/* --- Header & Navigation --- */
+header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    /* ADD THESE TWO LINES TO FIX THE DROPDOWN */
+    position: relative;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between; /* Puts logo on left, nav on right */
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+    position: relative; /* Needed for the dropdown */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* The active "Home" button */
+nav ul li a.active {
+    background-color: #333;
+    color: #fff;
+}
+
+nav ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+/* --- Dropdown Menu Styling --- */
+.sub-menu {
+    display: none; /* Hidden by default */
+    position: absolute; /* Takes it out of the normal flow */
+    top: 100%; /* Positions it right below the parent */
+    left: 0;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    min-width: 200px;
+    padding: 10px 0;
+}
+
+/* This class will be added by JavaScript */
+.sub-menu.active {
+    display: block;
+}
+
+.sub-menu li {
+    margin: 0;
+    width: 100%;
+}
+
+.sub-menu li a {
+    display: block;
+    width: auto;
+    padding: 10px 20px;
+    color: #333;
+    background: #fff; /* Override nav link styles */
+}
+
+/* Level 3 sub-menu (for Semesters) */
+.sub-menu .sub-menu {
+    top: 0;
+    left: 100%; /* Position to the right of the parent */
+}
+
+
+/* --- Hero Section --- */
+.hero {
+    padding: 60px 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Space between text and image */
+}
+
+/* Left column (text) */
+.hero-text {
+    flex: 1; /* Takes up 1 part of the space */
+}
+
+/* Right column (image) */
+.hero-image {
+    flex: 1; /* Takes up 1 part of the space */
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+}
+
+.hero-subheading {
+    font-size: 18px;
+    color: #666;
+    margin: 0;
+}
+
+.hero-text h1 {
+    font-size: 52px;
+    margin: 10px 0 20px 0;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* --- Button Styling --- */
+.btn {
+    display: block;
+    width: 70%;
+    max-width: 300px;
+    padding: 15px 25px;
+    margin-bottom: 20px;
+    text-align: left;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px; /* Makes it pill-shaped */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn span {
+    float: right; /* Puts the arrow on the right */
+    font-size: 24px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* "Join Now" button gradient */
+.btn-primary {
+    background-image: linear-gradient(to right, #62cff8, #4a8dff);
+}
+
+/* "Courses" button gradient */
+.btn-secondary {
+    background-image: linear-gradient(to right, #83f7f0, #61d7f8);
+}
+/* --- Hamburger Menu (Hidden on Desktop) --- */
+.hamburger {
+    display: none; /* Hide by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+
+/* --- MOBILE STYLES (RESPONSIVENESS) --- */
+
+/* This line means "apply these rules ONLY if the screen is 800px wide or less" */
+@media (max-width: 800px) {
+
+    /* --- Mobile Header --- */
+    .hamburger {
+        display: block; /* Show the hamburger button */
+        z-index: 1001; /* Keep it on top */
+    }
+
+    nav {
+        position: fixed; /* Make menu full-screen overlay */
+        top: 0;
+        left: -100%; /* Hide it off-screen to the left */
+        width: 100%;
+        height: 100vh;
+        background-color: white;
+        padding-top: 80px;
+        transition: left 0.3s ease-in-out;
+        z-index: 1000;
+    }
+    
+    /* This class will be added by JavaScript to show the menu */
+    nav.active {
+        left: 0; /* Slide the menu in */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack menu items vertically */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    /* Make dropdowns work in the new vertical layout */
+    .sub-menu {
+        position: static; /* Remove absolute positioning */
+        display: none; /* Still hidden by default */
+        box-shadow: none;
+        border: none;
+        background: #f9f9f9; /* Add a slight background to see them */
+        padding-left: 20px;
+    }
+
+    .sub-menu.active {
+        display: block;
+    }
+
+    /* --- Mobile Hero Section --- */
+    .hero-content {
+        flex-direction: column; /* Stack text on top of image */
+        text-align: center;
+    }
+
+    .hero-text {
+        order: 2; /* Put text below image (optional, or 1 for on top) */
+    }
+
+    .hero-image {
+        order: 1; /* Put image on top */
+    }
+
+    .hero-text h1 {
+        font-size: 36px; /* Make heading smaller */
+    }
+
+    .btn {
+        width: 90%; /* Make buttons wider */
+        max-width: none;
+        margin: 15px auto; /* Center the buttons */
+        text-align: left;
+    }
+}
+/* ======================================= */
+/* --- Semester 3 Page Specific Styles --- */
+/* ======================================= */
+
+/* Style the banner text (Same as before) */
+.semester-page .hero-text h1 {
+    font-size: 52px;
+    margin-bottom: 0;
+}
+
+.semester-page .hero-text .sub-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.semester-page .hero-text .quote {
+    font-size: 16px;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.semester-page .scroll-down {
+    font-size: 14px;
+    color: #777;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+.semester-page .scroll-down:hover {
+    text-decoration: underline;
+}
+
+/* Style the new Subject Buttons section (Same as before) */
+.subject-links {
+    padding: 40px 0;
+    background-color: #f9f9f9; 
+}
+
+
+/* --- NEW Two-Layer Button Styles --- */
+
+/* This is the OUTER button (the green border) */
+.subject-btn-outer {
+    display: block;
+    width: 80%;
+    max-width: 800px;
+    margin: 15px auto;
+    text-decoration: none;
+    border-radius: 50px;
+    padding: 4px; /* This padding creates the border thickness */
+    
+    /* The GREEN gradient for the border */
+    background-image: linear-gradient(to right, #50e3c2, #47c6a9); 
+    
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.subject-btn-outer:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* This is the INNER button (the purple fill) */
+.subject-btn-outer span {
+    display: block;
+    padding: 15px 30px;
+    border-radius: 46px; /* Slightly smaller than the outer radius */
+    
+    /* The PURPLE gradient for the fill */
+    background-image: linear-gradient(to right, #b27cf7, #8646f0);
+    
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* --- Make Semester Page Responsive (Same as before) --- */
+@media (max-width: 800px) {
+    .subject-btn-outer {
+        width: 95%; /* Make buttons wider on mobile */
+    }
+
+    .semester-page .hero-text {
+        text-align: center;
+    }
+}
+/* --- Style for the 'back' link on subject pages --- */
+.back-link {
+    text-decoration: none;
+    color: #007bff; /* A nice blue color */
+    font-weight: bold;
+    font-size: 16px;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
